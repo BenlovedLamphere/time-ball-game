@@ -1,8 +1,11 @@
-# react-family
 
-[从零搭建react-family框架教程](https://github.com/brickspert/blog/issues/1)（教程会不断更新）
 
-希望您能和我一起完善这个框架！欢迎`fork`
+
+本程序基于@brickspert 提供的react全家桶框架
+
+全家桶框架教程参见[从零搭建react-family框架教程](https://github.com/brickspert/blog/issues/1)
+
+
 
 ## 开发坏境启动
 
