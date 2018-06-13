@@ -1,0 +1,187 @@
+.bigbody {
+/*	width:9.83rem;
+	height: 4.85rem;
+*/
+	width: 85%;
+	background: url(./img/bodybg.png) no-repeat bottom center;
+	background-size: 100% calc(100vh - 1.6rem);
+	margin-right: 1%;
+/*	position: absolute;
+	bottom: 0;
+	right: 0.12rem;*/
+	display: flex;
+	flex-direction:column;
+	justify-content:flex-end;
+	align-items: left;
+	padding-left: .2rem;
+	padding-bottom: 1.5%;
+}
+.bigbody .mgt20 {
+	width: 9.83rem;
+	height: 0.1rem;
+}
+.bigbody dl {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 98%;
+	height: 10%;
+	justify-content:space-between;
+/*	margin-bottom: 0.16rem;
+*/}
+
+
+.bigbody dl dt {
+	display: block;
+	width: .62rem;
+}
+.bigbody dl dt img {
+	width: 92%;
+	margin: 0 auto;
+}
+.bigbody dl dd {
+	display: block;
+	width: 0.86rem;
+	height: 0.42rem;
+	background: #017dbd;
+	border-radius: .43rem;
+	border:5px #fff solid;
+	font-size: 0.25rem;
+	line-height: .42rem;
+	text-indent: 0.12rem;
+}
+.bigbody dl dd a {
+	display: block;
+	width: .86rem;
+	height: .42rem;
+	color: #fff;
+	position: relative;
+	text-indent: 0.20rem;
+}
+.bigbody dl dd a span {
+	display: block;
+	width: .47rem;
+	height: .47rem;
+	color: #fff;
+	position: absolute;
+	top: -0.03rem;
+	right: -0.2rem;
+	background: url(./img/plusbtnbg.png) no-repeat center center;
+	background-size: .47rem .47rem;
+	text-indent: 0;
+	text-align: center;
+}
+.bigbody dl dd a img {
+	position: absolute;
+	width: 0.47rem;
+	right: -0.2rem;
+	top: -0.03rem;
+}
+.bigbody .mgb10 {
+	margin-bottom: 0.08rem;
+}
+.bigbody .mgb10 img {
+	width: 50%;
+}
+.bigbody ul {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 98%;
+	height: 12%;
+	justify-content:space-between;
+	margin-bottom: 0.16rem;
+}
+.bigbody ul li {
+	display: block;
+	width: 0.62rem;
+	height: 0.62rem;
+	background-size: contain;
+	border-radius: .31rem;
+	overflow: hidden;
+}
+.bigbody ul .redball {
+	background: rgba(255, 0, 0, .45);
+}
+.bigbody ul .blueball {
+	background: rgba(0, 30, 255, .45);
+}
+.bigbody ul .greenball {
+	background: rgba(0, 255, 0, .45);
+}
+.bigbody ul span {
+	display: block;
+	width: .62rem;
+	height: .62rem;
+	background: url(./img/ball_bg.png) no-repeat center center;
+	background-size: .62rem .62rem;
+	font-size: 0.26rem;
+	color: #fff;
+	line-height: .62rem;
+	text-align: center;
+}
+
+
+.plusbtnout {
+	width: 98%;
+}
+.plusbtn {
+	width: 8.4rem;
+	justify-content:space-between;
+}
+.plusanmbtn {
+	margin-bottom: .16rem;
+}
+.bigbody .plusanmbtn dd {
+	display: block;
+	width: 0.62rem;
+	height: 0.42rem;
+	background: #017dbd;
+	border-radius: .43rem;
+	border:5px #fff solid;
+	font-size: 0.25rem;
+	line-height: .42rem;
+	text-indent: 0.12rem;
+}
+.bigbody .plusanmbtn dd a {
+	display: block;
+	width: .62rem;
+	height: .42rem;
+	color: #fff;
+	position: relative;
+	text-indent: 0.08rem;
+}
+.bigbody .plusanmbtn dd a span {
+	display: block;
+	width: .47rem;
+	height: .47rem;
+	color: #fff;
+	position: absolute;
+	top: -0.03rem;
+	right: -0.2rem;
+	background: url(./img/plusbtnbg.png) no-repeat center center;
+	background-size: .47rem .47rem;
+	text-indent: 0;
+	text-align: center;
+}
+.bigbody .plusanmbtn dd a img {
+	position: absolute;
+	width: 0.47rem;
+	right: -0.2rem;
+	top: -0.03rem;
+}
+
+@media screen and (orientation: portrait) {
+    .allthebody {
+    	height: calc(100vw - 1.44rem);
+    }
+    .bigbody {
+    	height:calc(100vw - 1.6rem);
+    }
+}
+@media screen and (orientation: landscape) {
+    .allthebody {
+    	height: calc(100vh - 1.44rem);
+    }
+    .bigbody {
+    	height:calc(100vh - 1.6rem);
+    }    
+}
