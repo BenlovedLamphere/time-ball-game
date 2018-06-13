@@ -1,7 +1,7 @@
 
 
 
-本程序基于@brickspert 提供的react全家桶框架
+本程序基于@brickspert @砖家 提供的react全家桶框架
 
 全家桶框架教程参见[从零搭建react-family框架教程](https://github.com/brickspert/blog/issues/1)
 
