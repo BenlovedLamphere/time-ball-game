@@ -4,121 +4,57 @@ import {countAllbets,goplaythebets} from 'actions/bets.js';
 
 import style from './bets.css';
 class Bets extends Component {
-
 		constructor(props) {
 			super(props);
 			this.abut = this.props.betsdata;
-			this.time = 0;
-			this.timemisson;
-			this.timeAround = this.timeAround.bind(this);
+			// this.time = 0;
+			// this.timemisson;
+			// this.timeAround = this.timeAround.bind(this);
 			this.handleClick = this.handleClick.bind(this);
+            this.state = {da:0,xiao:0,dan:0,shuang:0,hong:0,lv:0,lan:0,shu:0,niu:0,hu:0,tu:0,dragon:0,she:0,ma:0,yang:0,hou:0,ji:0,gou:0,zhu:0}
 		}
 
-  		timeAround () {
-    		this.time = this.time + 1;
-    		console.log(this.time);
-    		this.timemisson = 
-			setTimeout(()=> {
-				this.timeAround ();
-			}, 1000)
-    		if (this.time == 1) {
-                let afn = this.checkbetsright.bind(this);
-    			this.props.goplaythebets(this.props.gmsid,this.props.betsdatacenter,this.abut.ukey,afn);
-				clearTimeout(this.timemisson);
-    		}
-    	}
         checkbetsright () {
-                    if (this.props.betsdatacenter.gobetsrst.isSuccess == true) {
-                    let allbets = Number(this.props.betsdatacenter.gou) + 
-                                  Number(this.props.betsdatacenter.zhu) + 
-                                  Number(this.props.betsdatacenter.shu) +
-                                  Number(this.props.betsdatacenter.niu) +
-                                  Number(this.props.betsdatacenter.hu) +
-                                  Number(this.props.betsdatacenter.tu) +
-                                  Number(this.props.betsdatacenter.dragon) +
-                                  Number(this.props.betsdatacenter.she) +
-                                  Number(this.props.betsdatacenter.ma) +
-                                  Number(this.props.betsdatacenter.yang) +
-                                  Number(this.props.betsdatacenter.hou) +
-                                  Number(this.props.betsdatacenter.ji) +
-                                  Number(this.props.betsdatacenter.da) +
-                                  Number(this.props.betsdatacenter.xiao) +
-                                  Number(this.props.betsdatacenter.dan) +
-                                  Number(this.props.betsdatacenter.shuang) +
-                                  Number(this.props.betsdatacenter.hong) +
-                                  Number(this.props.betsdatacenter.lv) +
-                                  Number(this.props.betsdatacenter.lan)
-                                  this.props.countbets(allbets);    
-                    }
+            if (this.props.betsdatacenter.gobetsrst.isSuccess == true) {
+                let allbetback = this.props.betsdatacenter.gobetsrst.data.xiazhu;
+                let abetstate = this.state;
+                abetstate = allbetback;
+                this.setState(abetstate);
+                this.props.decrement(this.props.betsdatacenter.gobetsrst.data.yue);
+                this.props.countbets(this.props.betsdatacenter.gobetsrst.data.xiazhutotal);
+            }
         }
     	handleClick(which) {
-            // let allbets = Number(this.props.betsdatacenter.gou) + 
-            //               Number(this.props.betsdatacenter.zhu) + 
-            //               Number(this.props.betsdatacenter.shu) +
-            //               Number(this.props.betsdatacenter.niu) +
-            //               Number(this.props.betsdatacenter.hu) +
-            //               Number(this.props.betsdatacenter.tu) +
-            //               Number(this.props.betsdatacenter.dragon) +
-            //               Number(this.props.betsdatacenter.she) +
-            //               Number(this.props.betsdatacenter.ma) +
-            //               Number(this.props.betsdatacenter.yang) +
-            //               Number(this.props.betsdatacenter.hou) +
-            //               Number(this.props.betsdatacenter.ji) +
-            //               Number(this.props.betsdatacenter.da) +
-            //               Number(this.props.betsdatacenter.xiao) +
-            //               Number(this.props.betsdatacenter.dan) +
-            //               Number(this.props.betsdatacenter.shuang) +
-            //               Number(this.props.betsdatacenter.hong) +
-            //               Number(this.props.betsdatacenter.lv) +
-            //               Number(this.props.betsdatacenter.lan)
-            // if (Number(this.props.ifbets) <= Number(allbets)) {
-            //     return;
-            // } else if (Number(this.props.ifbets) > Number(allbets))   {
-            //     if (Number(this.props.ifbets) - Number(allbets) < Number(this.props.betnum)) {
-            //         return;
-            //     }else {
-            //         this.time = 0;
-            //         clearTimeout(this.timemisson);
-            //         this.timeAround();
-            //         this.props.countAllbets(which,this.props.betnum);     
-            //         this.props.decrement(); 
-            //     }
-            // } else {
-            //     this.time = 0;
-            //     clearTimeout(this.timemisson);
-            //     this.timeAround();
-            //     this.props.countAllbets(which,this.props.betnum);     
-            //     this.props.decrement(); 
-            // }
-
             if (Number(this.props.ifbets) >= Number(this.props.betnum)) {
-                this.time = 0;
-                clearTimeout(this.timemisson);
-                this.timeAround();
-                this.props.countAllbets(which,this.props.betnum);     
-                this.props.decrement(); 
+                let afn = this.checkbetsright.bind(this);
+                let _this = this;//改变this的指向
+                let p = new Promise (function (resolve,veject){
+                    _this.props.countAllbets(which,_this.props.betnum)
+                    resolve();
+                }).then(function () {
+                    _this.props.goplaythebets(_this.props.gmsid,_this.props.betsdatacenter,_this.abut.ukey,afn);
+                })
             } else {
               return;
             }
     	}
     render() {
   		console.log(this)
-
         return (
             <div className = {style.bigbody}>
                 <dl className = {style.plusanmbtn}>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('gou')}}>狗<span>{this.props.betsdatacenter.gou}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('zhu')}}>猪<span>{this.props.betsdatacenter.zhu}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('shu')}}>鼠<span>{this.props.betsdatacenter.shu}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('niu')}}>牛<span>{this.props.betsdatacenter.niu}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('hu')}}>虎<span>{this.props.betsdatacenter.hu}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('tu')}}>兔<span>{this.props.betsdatacenter.tu}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('dragon')}}>龙<span>{this.props.betsdatacenter.dragon}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('she')}}>蛇<span>{this.props.betsdatacenter.she}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('ma')}}>马<span>{this.props.betsdatacenter.ma}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('yang')}}>羊<span>{this.props.betsdatacenter.yang}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('hou')}}>猴<span>{this.props.betsdatacenter.hou}</span></a></dd>
-                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('ji')}}>鸡<span>{this.props.betsdatacenter.ji}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('gou')}}>狗<span>{this.state.gou}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('zhu')}}>猪<span>{this.state.zhu}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('shu')}}>鼠<span>{this.state.shu}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('niu')}}>牛<span>{this.state.niu}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('hu')}}>虎<span>{this.state.hu}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('tu')}}>兔<span>{this.state.tu}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('dragon')}}>龙<span>{this.state.dragon}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('she')}}>蛇<span>{this.state.she}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('ma')}}>马<span>{this.state.ma}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('yang')}}>羊<span>{this.state.yang}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('hou')}}>猴<span>{this.state.hou}</span></a></dd>
+                    <dd><a href = 'javascript:;' onClick={() => {this.handleClick('ji')}}>鸡<span>{this.state.ji}</span></a></dd>
                 </dl>
                 <dl>
                     <dt><img src = {require('./img/31.png')} /></dt>
@@ -192,21 +128,19 @@ class Bets extends Component {
                 </ul>
                 <div className = {style.plusbtnout}>
                     <dl className = {style.plusbtn}>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('da')}}>大<span>{this.props.betsdatacenter.da}</span></a></dd>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('xiao')}}>小<span>{this.props.betsdatacenter.xiao}</span></a></dd>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('dan')}}>单<span>{this.props.betsdatacenter.dan}</span></a></dd>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('shuang')}}>双<span>{this.props.betsdatacenter.shuang}</span></a></dd>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('hong')}}>红<span>{this.props.betsdatacenter.hong}</span></a></dd>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('lv')}}>绿<span>{this.props.betsdatacenter.lv}</span></a></dd>
-                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('lan')}}>蓝<span>{this.props.betsdatacenter.lan}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('da')}}>大<span>{this.state.da}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('xiao')}}>小<span>{this.state.xiao}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('dan')}}>单<span>{this.state.dan}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('shuang')}}>双<span>{this.state.shuang}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('hong')}}>红<span>{this.state.hong}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('lv')}}>绿<span>{this.state.lv}</span></a></dd>
+                        <dd><a href = 'javascript:;' onClick={() => {this.handleClick('lan')}}>蓝<span>{this.state.lan}</span></a></dd>
                     </dl>
                 </div>
             </div>
         )
     }
 }
-
-
 
 const mapStateToProps = (state) => {
     return {

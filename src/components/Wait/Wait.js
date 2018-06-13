@@ -31,9 +31,9 @@ class Wait extends Component {
         // this.countdowntime();
     }
 
-    decrementbls () {
+    decrementbls (e) {
         let blsstate = this.state;
-        blsstate.gamesall.blance = Number(blsstate.gamesall.blance) - Number(this.state.betnum);
+        blsstate.gamesall.blance = e;
         this.setState(blsstate);
     }
 
