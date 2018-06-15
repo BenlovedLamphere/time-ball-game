@@ -93,10 +93,26 @@
 .bigbody ul li {
 	display: block;
 	width: 0.62rem;
+	height: 0.42rem;
+/*	background: #017dbd;
+*/	border-radius: .43rem;
+	border:5px #fff solid;
+	font-size: 0.25rem;
+	line-height: .42rem;
+	text-indent: 0.12rem;
+}
+
+
+
+
+.bigbody ul li a {
+	display: block;
+	width: 0.62rem;
 	height: 0.62rem;
-	background-size: contain;
-	border-radius: .31rem;
-	overflow: hidden;
+	position: relative;
+}
+.bigbody ul li a span {
+
 }
 .bigbody ul .redball {
 	background: rgba(255, 0, 0, .45);
@@ -111,8 +127,8 @@
 	display: block;
 	width: .62rem;
 	height: .62rem;
-	background: url(./img/ball_bg.png) no-repeat center center;
-	background-size: .62rem .62rem;
+/*	background: url(./img/ball_bg.png) no-repeat center center;
+*/	background-size: .62rem .62rem;
 	font-size: 0.26rem;
 	color: #fff;
 	line-height: .62rem;
@@ -141,7 +157,7 @@
 	line-height: .42rem;
 	text-indent: 0.12rem;
 }
-.bigbody .plusanmbtn dd a {
+.bigbody .plusanmbtn dd a ,.bigbody ul li a {
 	display: block;
 	width: .62rem;
 	height: .42rem;
@@ -149,7 +165,7 @@
 	position: relative;
 	text-indent: 0.08rem;
 }
-.bigbody .plusanmbtn dd a span {
+.bigbody .plusanmbtn dd a span ,.bigbody ul li a span {
 	display: block;
 	width: .47rem;
 	height: .47rem;
@@ -161,6 +177,7 @@
 	background-size: .47rem .47rem;
 	text-indent: 0;
 	text-align: center;
+	line-height: .42rem;
 }
 .bigbody .plusanmbtn dd a img {
 	position: absolute;
