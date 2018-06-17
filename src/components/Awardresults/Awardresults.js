@@ -63,7 +63,7 @@ class Awardresults extends Component {
         if (this.props.gamerst.aresult.data) {
             let rstarr = this.props.gamerst.aresult.data.winners;
             let pagerstchild = rstarr.map((elt,index)=>{
-                let numelt = Number(elt);
+                // let numelt = Number(elt);
                 let fefno = 'n' + elt;
                 if (index == 6) {
                     this.refs[fefno].style.opacity = 1;
@@ -199,31 +199,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Awardresults);
 
 
                 // {pagerst}
-
-
-
-                // if (numelt == 1 || numelt == 12 || numelt == 8 || numelt == 7 || numelt == 2
-                //  || numelt == 13 || numelt == 24 || numelt == 23 || numelt == 19 || numelt == 18 || numelt ==  35  || numelt == 34
-                //  || numelt == 30 || numelt == 29 || numelt == 46 || numelt == 45 || numelt == 40) {
-                //     return  <li key = {Math.random()}>
-                //                 <div className={style.shadow}></div>
-                //                 <div className={style.ballsred}>{elt}</div>
-                //             </li>
-                // } else if (numelt == 11 || numelt == 6 || numelt == 5 || numelt == 22 || numelt == 21
-                //  || numelt == 17 || numelt == 16 || numelt == 33 || numelt == 32 || numelt == 28 || numelt ==  27  || numelt == 44
-                //  || numelt == 43 || numelt == 39 || numelt == 38) {
-                //     return  <li key = {Math.random()}>
-                //                 <div className={style.shadow}></div>
-                //                 <div className={style.ballsgreen}>{elt}</div>
-                //             </li>
-                // } else if (numelt == 10 || numelt == 9 || numelt == 4 || numelt == 3 || numelt == 20
-                //  || numelt == 15 || numelt == 14 || numelt == 25 || numelt == 36 || numelt == 31 || numelt ==  26  || numelt == 37
-                //  || numelt == 48 || numelt == 47 || numelt == 42 || numelt == 41) {
-                //     return  <li key = {Math.random()}>
-                //                 <div className={style.shadow}></div>
-                //                 <div className={style.ballsblue}>{elt}</div>
-                //             </li>
-                // }
 
 
 

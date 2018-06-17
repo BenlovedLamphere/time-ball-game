@@ -1,3 +1,25 @@
+.lastrecord dd {
+	width: 100%;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:center;
+}
+
+.balls {
+	height: .38rem;
+	width: .38rem;
+	border-radius: 50%;
+	font-size: .22rem;
+	color: #fff;
+	line-height: .38rem;
+	text-align: center;
+	font-weight: 300;
+}
+
+.ballsred  {composes:balls; background: -webkit-gradient(linear, left top, left bottom, from(#e55), to(#b00)); background: -webkit-linear-gradient(#e55, #b00); background: linear-gradient(#e55, #b00); }
+.ballsgreen {composes:balls; background: -webkit-gradient(linear, left top, left bottom, from(#5d5), to(#0a0)); background: -webkit-linear-gradient(#5d5, #0a0); background: linear-gradient(#5d5, #0a0); }
+.ballsblue  {composes:balls; background: -webkit-gradient(linear, left top, left bottom, from(#59e), to(#04b)); background: -webkit-linear-gradient(#59e, #04b); background: linear-gradient(#59e, #04b); }
+
 .colfff {
 	color: #fff;
 }
