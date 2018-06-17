@@ -9,6 +9,7 @@ class Awardresults extends Component {
     constructor(props) {
         super(props);
         this.abut = this.props.betsdata;
+        this.state = {chi:'暂无',pei:'暂无'}
     }
 
     componentDidMount() {
@@ -36,7 +37,7 @@ class Awardresults extends Component {
     }
 
     render() {
-        let pagerst =   <div>
+        let pagerst =   <div className = {style.darkbg}>
                             <div className={style.container}>
                               <div className={style.wrap} >
                                 <div className={style.ball1}></div>
@@ -58,36 +59,21 @@ class Awardresults extends Component {
                             </div>
                             <span>正在开奖中...</span>
                         </div>
-
+        let chipeielt = '';
         if (this.props.gamerst.aresult.data) {
             let rstarr = this.props.gamerst.aresult.data.winners;
-            let chipeielt = '';
-            let pagerstchild = rstarr.map((elt)=>{
+            let pagerstchild = rstarr.map((elt,index)=>{
                 let numelt = Number(elt);
-                if (numelt == 1 || numelt == 12 || numelt == 8 || numelt == 7 || numelt == 2
-                 || numelt == 13 || numelt == 24 || numelt == 23 || numelt == 19 || numelt == 18 || numelt ==  35  || numelt == 34
-                 || numelt == 30 || numelt == 29 || numelt == 46 || numelt == 45 || numelt == 40) {
-                    return  <li key = {Math.random()}>
-                                <div className={style.shadow}></div>
-                                <div className={style.ballsred}>{elt}</div>
-                            </li>
-                } else if (numelt == 11 || numelt == 6 || numelt == 5 || numelt == 22 || numelt == 21
-                 || numelt == 17 || numelt == 16 || numelt == 33 || numelt == 32 || numelt == 28 || numelt ==  27  || numelt == 44
-                 || numelt == 43 || numelt == 39 || numelt == 38) {
-                    return  <li key = {Math.random()}>
-                                <div className={style.shadow}></div>
-                                <div className={style.ballsgreen}>{elt}</div>
-                            </li>
-                } else if (numelt == 10 || numelt == 9 || numelt == 4 || numelt == 3 || numelt == 20
-                 || numelt == 15 || numelt == 14 || numelt == 25 || numelt == 36 || numelt == 31 || numelt ==  26  || numelt == 37
-                 || numelt == 48 || numelt == 47 || numelt == 42 || numelt == 41) {
-                    return  <li key = {Math.random()}>
-                                <div className={style.shadow}></div>
-                                <div className={style.ballsblue}>{elt}</div>
-                            </li>
+                let fefno = 'n' + elt;
+                if (index == 6) {
+                    this.refs[fefno].style.opacity = 1;
+                    this.refs[fefno].children[0].className = style.five;
+                    console.log('这是第六个')
+                } else {
+                    this.refs[fefno].style.opacity = 1;
                 }
             })
-
+            pagerst = '';               
             if (this.props.gamerst.aresult.data.chi || this.props.gamerst.aresult.data.pei) {
                 chipeielt = <div className = {style.chipei}>
                                 <p><img src = {require('./img/icon_chi.png')} /><span>{this.props.gamerst.aresult.data.chi}</span></p>
@@ -95,11 +81,13 @@ class Awardresults extends Component {
                             </div>
             }
 
-            pagerst =   <ul className = {style.wraps}>
-                            {chipeielt}
-                            {pagerstchild}
-                            <a className = {style.cangoplay} href = 'javascript:;' onClick = {()=>window.location.reload()}>知道了，返回游戏</a>
-                        </ul>
+
+
+                       // <ul className = {style.wraps}>
+                       //      {chipeielt}
+                       //      {pagerstchild}
+                       //      
+                       //  </ul>
 
             // setTimeout(()=> {
             //     window.location.reload()
@@ -108,9 +96,85 @@ class Awardresults extends Component {
         } 
 
         return (
-            <div className = {style.darkbg}>
-                {pagerst}
+            <div className = {style.bigbigbody}>
+                <div className = {style.bigbody}>
+                    {pagerst}
+                    {chipeielt}
+                    <dl>
+                        <dt><img src = {require('./img/31.png')} /></dt>
+                        <dt><img src = {require('./img/32.png')} /></dt>
+                        <dt><img src = {require('./img/21.png')} /></dt>
+                        <dt><img src = {require('./img/22.png')} /></dt>
+                        <dt><img src = {require('./img/23.png')} /></dt>
+                        <dt><img src = {require('./img/24.png')} /></dt>
+                        <dt><img src = {require('./img/25.png')} /></dt>
+                        <dt><img src = {require('./img/26.png')} /></dt>
+                        <dt><img src = {require('./img/27.png')} /></dt>
+                        <dt><img src = {require('./img/28.png')} /></dt>
+                        <dt><img src = {require('./img/29.png')} /></dt>
+                        <dt><img src = {require('./img/30.png')} /></dt>
+                    </dl>
+                    <ul>
+                        <li className = {style.redball} ref = 'n1'><a href = 'javascript:;'>01</a></li>
+                        <li className = {style.redball} ref = 'n12'><a href = 'javascript:;' >12</a></li>
+                        <li className = {style.greenball} ref = 'n11'><a href = 'javascript:;' >11</a></li>
+                        <li className = {style.blueball} ref = 'n10'><a href = 'javascript:;' >10</a></li>
+                        <li className = {style.blueball} ref = 'n9'><a href = 'javascript:;' >09</a></li>
+                        <li className = {style.redball} ref = 'n8'><a href = 'javascript:;' >08</a></li>
+                        <li className = {style.redball} ref = 'n7'><a href = 'javascript:;' >07</a></li>
+                        <li className = {style.greenball} ref = 'n6'><a href = 'javascript:;' >06</a></li>
+                        <li className = {style.greenball} ref = 'n5'><a href = 'javascript:;' >05</a></li>
+                        <li className = {style.blueball} ref = 'n4'><a href = 'javascript:;' >04</a></li>
+                        <li className = {style.blueball} ref = 'n3'><a href = 'javascript:;' >03</a></li>
+                        <li className = {style.redball} ref = 'n2'><a href = 'javascript:;' >02</a></li>
+                    </ul>
+                    <ul>
+                        <li className = {style.redball} ref = 'n13'><a href = 'javascript:;' >13</a></li>
+                        <li className = {style.redball} ref = 'n24'><a href = 'javascript:;' >24</a></li>
+                        <li className = {style.redball} ref = 'n23'><a href = 'javascript:;' >23</a></li>
+                        <li className = {style.greenball} ref = 'n22'><a href = 'javascript:;' >22</a></li>
+                        <li className = {style.greenball} ref = 'n21'><a href = 'javascript:;' >21</a></li>
+                        <li className = {style.blueball} ref = 'n20'><a href = 'javascript:;' >20</a></li>
+                        <li className = {style.redball} ref = 'n19'><a href = 'javascript:;' >19</a></li>
+                        <li className = {style.redball} ref = 'n18'><a href = 'javascript:;' >18</a></li>
+                        <li className = {style.greenball} ref = 'n17'><a href = 'javascript:;' >17</a></li>
+                        <li className = {style.greenball} ref = 'n16'><a href = 'javascript:;' >16</a></li>
+                        <li className = {style.blueball} ref = 'n15'><a href = 'javascript:;' >15</a></li>
+                        <li className = {style.blueball} ref = 'n14'><a href = 'javascript:;' >14</a></li>
+                    </ul>
+                    <ul>
+                        <li className = {style.blueball} ref = 'n25'><a href = 'javascript:;' >25</a></li>
+                        <li className = {style.blueball} ref = 'n36'><a href = 'javascript:;' >36</a></li>
+                        <li className = {style.redball} ref = 'n35'><a href = 'javascript:;' >35</a></li>
+                        <li className = {style.redball} ref = 'n34'><a href = 'javascript:;' >34</a></li>
+                        <li className = {style.greenball} ref = 'n33'><a href = 'javascript:;' >33</a></li>
+                        <li className = {style.greenball} ref = 'n32'><a href = 'javascript:;' >32</a></li>
+                        <li className = {style.blueball} ref = 'n31'><a href = 'javascript:;' >31</a></li>
+                        <li className = {style.redball} ref = 'n30'><a href = 'javascript:;' >30</a></li>
+                        <li className = {style.redball} ref = 'n29'><a href = 'javascript:;' >29</a></li>
+                        <li className = {style.greenball} ref = 'n28'><a href = 'javascript:;' >28</a></li>
+                        <li className = {style.greenball} ref = 'n27'><a href = 'javascript:;' >27</a></li>
+                        <li className = {style.blueball} ref = 'n26'><a href = 'javascript:;' >26</a></li>
+                    </ul>
+                    <ul>
+                        <li className = {style.blueball} ref = 'n37'><a href = 'javascript:;' >37</a></li>
+                        <li className = {style.blueball} ref = 'n48'><a href = 'javascript:;' >48</a></li>
+                        <li className = {style.blueball} ref = 'n47'><a href = 'javascript:;' >47</a></li>
+                        <li className = {style.redball} ref = 'n46'><a href = 'javascript:;' >46</a></li>
+                        <li className = {style.redball} ref = 'n45'><a href = 'javascript:;' >45</a></li>
+                        <li className = {style.greenball} ref = 'n44'><a href = 'javascript:;' >44</a></li>
+                        <li className = {style.greenball} ref = 'n43'><a href = 'javascript:;' >43</a></li>
+                        <li className = {style.blueball} ref = 'n42'><a href = 'javascript:;' >42</a></li>
+                        <li className = {style.blueball} ref = 'n41'><a href = 'javascript:;' >41</a></li>
+                        <li className = {style.redball} ref = 'n40'><a href = 'javascript:;' >40</a></li>
+                        <li className = {style.greenball} ref = 'n39'><a href = 'javascript:;' >39</a></li>
+                        <li className = {style.greenball} ref = 'n38'><a href = 'javascript:;' >38</a></li>
+                    </ul>
+                </div>
+                <a className = {style.cangoplay} href = 'javascript:;' onClick = {()=>window.location.reload()}>知道了，返回游戏</a>
+
             </div>
+
         )
     }
 }
@@ -134,10 +198,32 @@ export default connect(mapStateToProps, mapDispatchToProps)(Awardresults);
 
 
 
+                // {pagerst}
 
 
 
-
+                // if (numelt == 1 || numelt == 12 || numelt == 8 || numelt == 7 || numelt == 2
+                //  || numelt == 13 || numelt == 24 || numelt == 23 || numelt == 19 || numelt == 18 || numelt ==  35  || numelt == 34
+                //  || numelt == 30 || numelt == 29 || numelt == 46 || numelt == 45 || numelt == 40) {
+                //     return  <li key = {Math.random()}>
+                //                 <div className={style.shadow}></div>
+                //                 <div className={style.ballsred}>{elt}</div>
+                //             </li>
+                // } else if (numelt == 11 || numelt == 6 || numelt == 5 || numelt == 22 || numelt == 21
+                //  || numelt == 17 || numelt == 16 || numelt == 33 || numelt == 32 || numelt == 28 || numelt ==  27  || numelt == 44
+                //  || numelt == 43 || numelt == 39 || numelt == 38) {
+                //     return  <li key = {Math.random()}>
+                //                 <div className={style.shadow}></div>
+                //                 <div className={style.ballsgreen}>{elt}</div>
+                //             </li>
+                // } else if (numelt == 10 || numelt == 9 || numelt == 4 || numelt == 3 || numelt == 20
+                //  || numelt == 15 || numelt == 14 || numelt == 25 || numelt == 36 || numelt == 31 || numelt ==  26  || numelt == 37
+                //  || numelt == 48 || numelt == 47 || numelt == 42 || numelt == 41) {
+                //     return  <li key = {Math.random()}>
+                //                 <div className={style.shadow}></div>
+                //                 <div className={style.ballsblue}>{elt}</div>
+                //             </li>
+                // }
 
 
 

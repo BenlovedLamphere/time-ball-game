@@ -16,7 +16,6 @@ class Bets extends Component {
                           no19:0,no20:0,no21:0,no22:0,no23:0,no24:0,no25:0,no26:0,no27:0,no28:0,no29:0,no30:0,no31:0,no32:0,no33:0,no34:0,no35:0,
                           no36:0,no37:0,no38:0,no39:0,no40:0,no41:0,no42:0,no43:0,no44:0,no45:0,no46:0,no47:0,no48:0}
 		}
-
         checkbetsright () {
             if (this.props.betsdatacenter.gobetsrst.isSuccess == true) {
                 let allbetback = this.props.betsdatacenter.gobetsrst.data.xiazhu;

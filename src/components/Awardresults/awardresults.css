@@ -78,10 +78,6 @@
 	composes:wrap;
 	animation-delay: -1600ms;
 }
-
-
-
-
 .ball1 {
 	composes:ball;	
 }
@@ -89,7 +85,6 @@
 	composes:ball;	
   background-color: #F4B400;
     animation-delay: -400ms;
-
 }
 
 .ball3 {
@@ -97,13 +92,11 @@
   background-color: #EEEEEE;
   animation-delay: -800ms;
 }
-
 .ball4 {
 	composes:ball;	
   background-color: #00A656;
   animation-delay: -1200ms;
 }
-
 .ball5 {
 	composes:ball;	
   background-color: #E3746B;
@@ -158,147 +151,264 @@
     opacity: 1;
   }
 }
+.bigbigbody {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background:#000;
+	z-index: 99;
+}
 
 
-
-
-
-
-
+.chipei {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+}
+.chipei p {
+	display: flex;
+	justify-content: flex-start;
+	width: 50%;
+	height: 1rem;
+}
+.chipei p img {
+	width: .6rem;
+	height: .6rem;
+}
+.chipei p span {
+	color: #fff;
+	font-size: 0.36rem;
+	line-height: .6rem;
+}
 .cangoplay {
     display: block;
-    position: absolute;
-    bottom: -2rem;
-    width: 5.8rem;
+    width: 3rem;
     font-size: .3rem;
     background: red;
-    height: 1rem;
-    line-height: 1rem;
+    height: .8rem;
+    line-height: .8rem;
     color: #fff;
     margin: 0.3rem auto 0 auto;
     text-align: center;
     border-radius: .2rem;
 }
-
-
-.wraps {
-	bottom: 3rem;
-	position: absolute;
+.bigbody {
+/*	width:9.83rem;
+	height: 4.85rem;
+*/
+	width: 85%;
+	background: url(./img/bodybg.png) no-repeat bottom center;
+	background-size: 100% calc(100vh - 1.6rem);
+	margin: .3rem auto;
+/*	position: absolute;
+	bottom: 0;
+	right: 0.12rem;*/
 	display: flex;
-	justify-content:center;
-	width: 100%;
-	height: 1rem;
+	flex-direction:column;
+	justify-content:flex-end;
+	align-items: left;
+	padding-left: 1.5%;
 }
-.chipei {
+.bigbody .mgt20 {
+	width: 9.83rem;
+	height: 0.1rem;
+}
+.bigbody dl {
 	display: flex;
+	flex-wrap: nowrap;
+	width: 98%;
+	height: 10%;
 	justify-content:space-between;
-	width: 50%;
-	position: absolute;
-	bottom: 1.8rem;
-}
-.chipei p {
-	display: flex;
-	justify-content:center;
-	width: 80%;
-	height: 1rem;
-}
-.chipei span {
+/*	margin-bottom: 0.16rem;
+*/}
+
+
+.bigbody dl dt {
 	display: block;
-	width: .5rem;
-	color:#fff;
-	font-size: .8rem;
-	margin:0;
+	width: .62rem;
 }
-.chipei p img {
-	width: 40%;
-	height: auto;
+.bigbody dl dt img {
+	width: 92%;
+	margin: 0 auto;
 }
-.wraps li  {display: block; width: 10%;height: 1rem; position: relative;}
-
-.balls,
-.shadow {
-	border-radius:100%;
-	left: 0;
-	margin: auto;
-	position: absolute;
-	right: 0;
-	top: 0;
+.bigbody dl dd {
+	display: block;
+	width: 0.86rem;
+	height: 0.42rem;
+	background: #017dbd;
+	border-radius: .43rem;
+	border:5px #fff solid;
+	font-size: 0.25rem;
+	line-height: .42rem;
+	text-indent: 0.12rem;
 }
-.balls {
-	-webkit-animation: ball 300ms cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate;
-	animation: ball 300ms cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate;
-	height: 1rem;
-	width: 1rem;
-	font-size: 0.36rem;
+.bigbody dl dd a {
+	display: block;
+	width: .86rem;
+	height: .42rem;
 	color: #fff;
+	position: relative;
+	text-indent: 0.20rem;
+}
+.bigbody dl dd a span {
+	display: block;
+	width: .47rem;
+	height: .47rem;
+	color: #fff;
+	position: absolute;
+	top: -0.03rem;
+	right: -0.2rem;
+	background: url(./img/plusbtnbg.png) no-repeat center center;
+	background-size: .47rem .47rem;
+	text-indent: 0;
 	text-align: center;
-	line-height: 1rem;
+}
+.bigbody dl dd a img {
+	position: absolute;
+	width: 0.47rem;
+	right: -0.2rem;
+	top: -0.03rem;
+}
+.bigbody .mgb10 {
+	margin-bottom: 0.08rem;
+}
+.bigbody .mgb10 img {
+	width: 50%;
+}
+.bigbody ul {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 98%;
+	height: 12%;
+	justify-content:space-between;
+	margin-bottom: 0.16rem;
+}
+.bigbody ul li {
+	display: block;
+	width: 0.62rem;
+	height: 0.62rem;
+/*	background: #017dbd;
+*/	border-radius: .43rem;
+	border:2px #fff solid;
+	font-size: 0.25rem;
+	line-height: .62rem;
+	text-indent: 0.12rem;
+	opacity: .2;
+}
+.five {
+	background: url(./img/five.png) no-repeat center center;
+	background-size: 130% 130%;
+	background-position: -.1rem -.14rem;
 }
 
-.ballsred  {composes:balls; background: -webkit-gradient(linear, left top, left bottom, from(#e55), to(#b00)); background: -webkit-linear-gradient(#e55, #b00); background: linear-gradient(#e55, #b00); }
-.ballsgreen {composes:balls; background: -webkit-gradient(linear, left top, left bottom, from(#5d5), to(#0a0)); background: -webkit-linear-gradient(#5d5, #0a0); background: linear-gradient(#5d5, #0a0); }
-.ballsblue  {composes:balls; background: -webkit-gradient(linear, left top, left bottom, from(#59e), to(#04b)); background: -webkit-linear-gradient(#59e, #04b); background: linear-gradient(#59e, #04b); }
 
-.shadow {
-	-webkit-animation: shadow 300ms cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate;
-	animation: shadow 300ms cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate;
-	background: #000;
-	bottom: -90px;
-	height: 25px;
-	width: 75px;
+
+.bigbody ul li a {
+	display: block;
+	width: 0.62rem;
+	height: 0.62rem;
+	position: relative;
+}
+.bigbody ul li a span {
+	display: block;
+	width: .4rem;
+	height: .4rem;
+	color: #fff;
+	position: absolute;
+	top: 0.01rem;
+	right: -0.2rem;
+	background: url(./img/plusbtnbg.png) no-repeat center center;
+	background-size: .4rem .4rem;
+	text-indent: 0;
+	text-align: center;
+	line-height: .4rem;
+}
+.bigbody ul .redball {
+	background: rgba(255, 0, 0, .45);
+}
+.bigbody ul .blueball {
+	background: rgba(0, 30, 255, .45);
+}
+.bigbody ul .greenball {
+	background: rgba(0, 255, 0, .45);
+}
+.bigbody ul span {
+	display: block;
+	width: .62rem;
+	height: .62rem;
+/*	background: url(./img/ball_bg.png) no-repeat center center;
+*/	background-size: .62rem .62rem;
+	font-size: 0.18rem;
+	color: #fff;
+	line-height: .62rem;
+	text-align: center;
+}
+.plusbtnout {
+	width: 98%;
+}
+.plusbtn {
+	width: 8.4rem;
+	justify-content:space-between;
+}
+.plusanmbtn {
+	margin-bottom: .16rem;
+}
+.bigbody .plusanmbtn dd {
+	display: block;
+	width: 0.62rem;
+	height: 0.42rem;
+	background: #017dbd;
+	border-radius: .43rem;
+	border:5px #fff solid;
+	font-size: 0.25rem;
+	line-height: .42rem;
+	text-indent: 0.12rem;
+}
+.bigbody .plusanmbtn dd a ,.bigbody ul li a {
+	display: block;
+	width: .62rem;
+	height: .62rem;
+	color: #fff;
+	position: relative;
+	text-indent: 0.15rem;
+}
+.bigbody .plusanmbtn dd a span {
+	display: block;
+	width: .47rem;
+	height: .47rem;
+	color: #fff;
+	position: absolute;
+	top: -0.03rem;
+	right: -0.2rem;
+	background: url(./img/plusbtnbg.png) no-repeat center center;
+	background-size: .47rem .47rem;
+	text-indent: 0;
+	text-align: center;
+	line-height: .42rem;
+}
+.bigbody .plusanmbtn dd a img {
+	position: absolute;
+	width: 0.47rem;
+	right: -0.2rem;
+	top: -0.03rem;
 }
 
-/*.b1 .balls, 
-.b1 .shadow   { -webkit-animation-delay: -200ms; animation-delay: -200ms; }
-.b2 .balls,
-.b2 .shadow { -webkit-animation-delay: -100ms; animation-delay: -100ms; }
-.b3 .balls ,
-.b3 .shadow  { -webkit-animation-delay: 0; animation-delay: 0; }*/
-
-@-webkit-keyframes ball {
-	0% {
-		-webkit-transform: translateY( 0 );
-		transform: translateY( 0 );
-	}
-	100% {
-		-webkit-transform: translateY( -0.5rem );
-		transform: translateY( -.5rem );
-	}
+@media screen and (orientation: portrait) {
+    .allthebody {
+    	height: calc(100vw - 1.44rem);
+    }
+    .bigbody {
+    	height:calc(100vw - 1.6rem);
+    }
 }
-
-@keyframes ball {
-	0% {
-		-webkit-transform: translateY( 0 );
-		transform: translateY( 0 );
-	}
-	100% {
-		-webkit-transform: translateY( -.5rem );
-		transform: translateY( -.5rem );
-	}
-}
-
-@-webkit-keyframes shadow {
-	0% {
-		opacity: 0.2;
-		-webkit-transform: scale( 0.75 );
-		transform: scale( 0.75 );
-	}
-	100% {
-		opacity: 0.05;
-		-webkit-transform: scale( 1 );
-		transform: scale( 1 );
-	}
-}
-
-@keyframes shadow {
-	0% {
-		opacity: 0.2;
-		-webkit-transform: scale( 0.75 );
-		transform: scale( 0.75 );
-	}
-	100% {
-		opacity: 0.05;
-		-webkit-transform: scale( 1 );
-		transform: scale( 1 );
-	}
+@media screen and (orientation: landscape) {
+    .allthebody {
+    	height: calc(100vh - 1.44rem);
+    }
+    .bigbody {
+    	height:calc(100vh - 1.6rem);
+    }    
 }
