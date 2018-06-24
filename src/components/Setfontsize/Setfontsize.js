@@ -19,7 +19,17 @@ export default win.flex = (normal, baseFontSize, fontscale) => {
   let dpr = win.devicePixelRatio || 1;
   if (!isIos && !(matches && matches[1] > 534) && !isUCHd) {
     // 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;
-    dpr = 1;
+    if (screen.width <= 1024) {
+      dpr = 1.5;
+    } else if (screen.width > 1024 && screen.width < 1441) {
+      dpr = 2;
+    } else if (screen.width > 1441 && screen.width < 1681) {
+      dpr = 2.5;
+    } else if (screen.width > 1681) {
+      dpr = 3;
+    } else {
+      dpr = 1;
+    }
   }
   const scale = normal ? 1 : 1 / dpr;
 

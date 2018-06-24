@@ -6,6 +6,7 @@ import Counttime from 'components/Counttime/Counttime';
 import Awardresults  from 'components/Awardresults/Awardresults';
 import Lastrecord  from 'components/Lastrecord/Lastrecord';
 import style from './wait.css';
+
 class Wait extends Component {
     constructor(props) {
         super(props);
@@ -70,9 +71,11 @@ class Wait extends Component {
         let pagegame,countdowntime;
         let betsdata = {canbet:true,ukey:this.props.ukeystate};
         let layoutpage = '';
+        let music = 'http://www.namcmusic.cn/bg.mp3';
         if (this.state.stopbet < 21) {
             // layoutpage = '';
             layoutpage = <Awardresults betsdata = {betsdata} stopbets = {this.stopBets.bind(this) }/>
+            music = 'http://www.namcmusic.cn/rst.mp3';
         }
         let infodata = new Object();
         let timepage = '';
@@ -85,7 +88,6 @@ class Wait extends Component {
         infodata.da = 0;
         infodata.xiao = 0;
         infodata.blance = 0;
-
         console.log (betsdata);
         console.log (this);
         if (this.props.gamesinfo.infoback.data) {
@@ -98,6 +100,7 @@ class Wait extends Component {
         }
         return (
             <div className = {style.w100}>
+                <audio ref = 'playMusic' src={music} autoPlay loop hidden></audio>
                 <div>
                             <div className = {style.top}>
                                 <ul>
@@ -135,26 +138,13 @@ class Wait extends Component {
                                     </li>                        
                                 </ul>
                                 <dl>
-                                    <dt></dt>
-                                    <dd>欢迎您</dd>
-                                    <dd>用户 <span>{this.props.number.username}</span></dd>
+                                    <dt><span className = {style.notice}>{this.state.gamesall.notice}</span></dt>
+                                    <dd>欢迎 <span>{this.props.number.username}</span></dd>
                                 </dl>
                             </div>
                             <div className = {style.allthebody}>
                                 <div className = {style.leftbody}>
-                                    <ul>
-                                        <li>余额：<span>{this.state.gamesall.blance}</span></li>
-                                        <li>下注：<span>{this.state.alltheBets}</span></li>
-                                        <li>开奖：{timepage}</li>
-                                    </ul>
-
-
-
-
                                     <Lastrecord />
-
-
-
                                     <div className = {style.setbetsval}>
                                         <select value = {this.state.betnum} onChange = {(e)=>{
                                             this.changeBetnum(e);
@@ -166,13 +156,15 @@ class Wait extends Component {
                                         </select>
                                     </div>
                                 </div>
-
                                 <Bets decrement = {this.decrementbls.bind(this)} ifbets = {this.state.gamesall.blance} gmsid = {this.state.gamesall.curr} betsdata = {betsdata} betnum = {this.state.betnum} countbets = {this.countAlltheBets.bind(this)}/>
-
                             </div>
                             <div className = {style.topleft}>
                                 <h1>第<span>{this.state.gamesall.curr}</span>期</h1>
-                                <span className = {style.notice}>{this.state.gamesall.notice}</span>
+                                <ul>
+                                    <li>余额：<span>{this.state.gamesall.blance}</span></li>
+                                    <li>下注：<span>{this.state.alltheBets}</span></li>
+                                    <li>开奖：<span>{timepage}</span></li>
+                                </ul>                                
                             </div>
                             <div className = {style.bottomright}>
                             </div>

@@ -33,6 +33,10 @@ class Awardresults extends Component {
             setTimeout(()=> {
                 this.props.getRst(rstUrl,rstfn);
             }, 1000)            
+        } else {
+            setTimeout(()=>{
+                window.location.reload();
+            },10000)
         }
     }
 
@@ -171,7 +175,6 @@ class Awardresults extends Component {
                         <li className = {style.greenball} ref = 'n38'><a href = 'javascript:;' >38</a></li>
                     </ul>
                 </div>
-                <a className = {style.cangoplay} href = 'javascript:;' onClick = {()=>window.location.reload()}>知道了，返回游戏</a>
 
             </div>
 
@@ -196,6 +199,7 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Awardresults);
 
+                // <a className = {style.cangoplay} href = 'javascript:;' onClick = {()=>window.location.reload()}>知道了，返回游戏</a>
 
 
                 // {pagerst}

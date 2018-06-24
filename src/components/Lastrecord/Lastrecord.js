@@ -47,7 +47,6 @@ class Lastrecord extends Component {
                     return  <span key = {Math.random()} className = {style.ballsblue}>{numelt}</span>
                 }                
             })
-
         }
 		return (
             <dl className = {style.lastrecord}>

@@ -126,13 +126,13 @@
 	line-height: .4rem;
 }
 .bigbody ul .redball {
-	background: rgba(255, 0, 0, .45);
+	background: -webkit-gradient(linear, left top, left bottom, from(#e55), to(#b00)); background: -webkit-linear-gradient(#e55, #b00); background: linear-gradient(#e55, #b00);
 }
 .bigbody ul .blueball {
-	background: rgba(0, 30, 255, .45);
+	background: -webkit-gradient(linear, left top, left bottom, from(#5d5), to(#0a0)); background: -webkit-linear-gradient(#5d5, #0a0); background: linear-gradient(#5d5, #0a0);
 }
 .bigbody ul .greenball {
-	background: rgba(0, 255, 0, .45);
+	background: -webkit-gradient(linear, left top, left bottom, from(#59e), to(#04b)); background: -webkit-linear-gradient(#59e, #04b); background: linear-gradient(#59e, #04b);
 }
 .bigbody ul span {
 	display: block;
