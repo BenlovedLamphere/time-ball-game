@@ -38,13 +38,13 @@ class Playgames extends Component {
             }
         }
 
-        if (cookie.get("sscuserskey")  ==  undefined || cookie.get("sscuserskey")  ==  '' ) {
+        if (cookie.get("sscuserskey1")  ==  undefined || cookie.get("sscuserskey1")  ==  '' ) {
             let ukey;
             let agentId = this.props.location.search.substring(1);
-            let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId + '&ukey=' + ukey;
+            let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId
             this.props.getlogin(loginUrl);
-        } else if (cookie.get("sscuserskey")) {
-            let adatastring = cookie.get("sscuserskey");
+        } else if (cookie.get("sscuserskey1")) {
+            let adatastring = cookie.get("sscuserskey1");
             let dataarr = adatastring.split("_");
             let dataarrobj = dataarr.map ((elt)=>{
                 return JSON.parse(elt); 
@@ -62,7 +62,7 @@ class Playgames extends Component {
             } else {
                 let ukey;
                 let agentId = this.props.location.search.substring(1);
-                let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId + '&ukey=' + ukey;
+                let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId
                 this.props.getlogin(loginUrl);
             }
         }
@@ -91,7 +91,7 @@ class Playgames extends Component {
                     return tips;
                 }
             }
-            if (cookie.get("sscuserskey")  ==  undefined || cookie.get("sscuserskey")  ==  '' ) {
+            if (cookie.get("sscuserskey1")  ==  undefined || cookie.get("sscuserskey1")  ==  '' ) {
                 let dailiId = this.props.location.search.substring(1);
                 let userKey = ev.ukey;
                 let userdataarr = new Array();
@@ -101,9 +101,9 @@ class Playgames extends Component {
                 let userobjtostring = JSON.stringify(userdataobj);
                 userdataarr.push(userobjtostring);
                 let userdataarrstring = userdataarr.join('_');
-                cookie.set("sscuserskey",userdataarr,30);                
-            } else if (cookie.get("sscuserskey")) {
-                let adatastring = cookie.get("sscuserskey");
+                cookie.set("sscuserskey1",userdataarr,30);                
+            } else if (cookie.get("sscuserskey1")) {
+                let adatastring = cookie.get("sscuserskey1");
                 let dataarr = adatastring.split("_");
                 let dailiId = this.props.location.search.substring(1);
                 let userKey = ev.ukey;
@@ -113,7 +113,7 @@ class Playgames extends Component {
                 let userobjtostring = JSON.stringify(userdataobj);
                 dataarr.push(userobjtostring);
                 let userdataarrstring = dataarr.join('_');
-                cookie.set("sscuserskey",userdataarrstring,30);                
+                cookie.set("sscuserskey1",userdataarrstring,30);                
                 // let dataarrobj = dataarr.map ((elt)=>{
                 //     return JSON.parse(elt); 
                 // })
