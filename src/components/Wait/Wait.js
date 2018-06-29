@@ -41,7 +41,7 @@ class Wait extends Component {
     reloadwait () {
         let ukey = this.props.ukeystate;
         let agmidfn = this.setgamesid.bind(this);
-        let gameUrl = 'http://m.ilikezu.cn:8080/ssc/game/realtimeInfo.xhtml?ukey=' + ukey;
+        let gameUrl = this.props.apiurl + 'game/realtimeInfo.xhtml?ukey=' + ukey;
         this.props.getinfo(gameUrl,agmidfn);
         if (this.state.stopbet > 21) {
         this.waittimemisson = setTimeout(()=> {
@@ -74,7 +74,7 @@ class Wait extends Component {
         let music = 'http://www.namcmusic.cn/bg.mp3';
         if (this.state.stopbet < 21) {
             // layoutpage = '';
-            layoutpage = <Awardresults betsdata = {betsdata} stopbets = {this.stopBets.bind(this) }/>
+            layoutpage = <Awardresults betsdata = {betsdata} stopbets = {this.stopBets.bind(this) } apiurl = {this.props.apiurl}/>
             music = 'http://www.namcmusic.cn/rst.mp3';
         }
         let infodata = new Object();
@@ -95,7 +95,7 @@ class Wait extends Component {
             betsdata.gameid = infodata.curr;
             //  = parseInt((Number(infodata.endtime) - Number(infodata.servertime)) / 1000);
             let timedifference = parseInt((Number(infodata.endtime) - Number(infodata.servertime)) / 1000);
-            timepage = <Counttime times = {timedifference} stopbets = {this.stopBets.bind(this)}/>;
+            timepage = <Counttime times = {timedifference} stopbets = {this.stopBets.bind(this)} apiurl = {this.props.apiurl}/>;
             // pagegame =  
         }
         return (
@@ -144,7 +144,7 @@ class Wait extends Component {
                             </div>
                             <div className = {style.allthebody}>
                                 <div className = {style.leftbody}>
-                                    <Lastrecord />
+                                    <Lastrecord apiurl = {this.props.apiurl} />
                                     <div className = {style.setbetsval}>
                                         <select value = {this.state.betnum} onChange = {(e)=>{
                                             this.changeBetnum(e);
@@ -156,7 +156,7 @@ class Wait extends Component {
                                         </select>
                                     </div>
                                 </div>
-                                <Bets decrement = {this.decrementbls.bind(this)} ifbets = {this.state.gamesall.blance} gmsid = {this.state.gamesall.curr} betsdata = {betsdata} betnum = {this.state.betnum} countbets = {this.countAlltheBets.bind(this)}/>
+                                <Bets apiurl = {this.props.apiurl} decrement = {this.decrementbls.bind(this)} ifbets = {this.state.gamesall.blance} gmsid = {this.state.gamesall.curr} betsdata = {betsdata} betnum = {this.state.betnum} countbets = {this.countAlltheBets.bind(this)}/>
                             </div>
                             <div className = {style.topleft}>
                                 <h1>第<span>{this.state.gamesall.curr}</span>期</h1>

@@ -6,21 +6,23 @@ import store from './redux/store';
 import {BrowserRouter as Router} from 'react-router-dom';
 import App from 'components/App/App';
 
-renderWithHotReload(App);
+var apiUrl = 'http://m.ilikezu.cn:8080/ssc/';
+
+renderWithHotReload(App,apiUrl);
 
 if (module.hot) {
     module.hot.accept('components/App/App', () => {
         const NextApp = require('components/App/App').default;
-        renderWithHotReload(NextApp);
+        renderWithHotReload(NextApp,apiUrl);
     });
 }
 
-function renderWithHotReload(RootElement) {
+function renderWithHotReload(RootElement,apiurl) {
     ReactDom.render(
         <AppContainer>
             <Provider store={store}>
                 <Router>
-                    <RootElement/>
+                    <RootElement apiurl = {apiurl} />
                 </Router>
             </Provider>
         </AppContainer>,

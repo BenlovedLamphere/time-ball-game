@@ -15,7 +15,7 @@ class Awardresults extends Component {
     componentDidMount() {
         let gmid = this.abut.gameid;
         let ukey = this.abut.ukey;
-        let rstUrl = 'http://m.ilikezu.cn:8080/ssc/game/getWinners.xhtml?gameId=' + gmid + '&ukey=' + ukey;
+        let rstUrl = this.props.apiurl + 'game/getWinners.xhtml?gameId=' + gmid + '&ukey=' + ukey;
         let rstfn = this.callrstagain.bind(this);
         setTimeout(()=> {
             this.props.getRst(rstUrl,rstfn);
@@ -28,7 +28,7 @@ class Awardresults extends Component {
         if (this.props.gamerst.aresult.isSuccess == false) {
             let gmid = this.abut.gameid;
             let ukey = this.abut.ukey;
-            let rstUrl = 'http://m.ilikezu.cn:8080/ssc/game/getWinners.xhtml?gameId=' + gmid + '&ukey=' + ukey;
+            let rstUrl = this.props.apiurl + 'game/getWinners.xhtml?gameId=' + gmid + '&ukey=' + ukey;
             let rstfn = this.callrstagain.bind(this);
             setTimeout(()=> {
                 this.props.getRst(rstUrl,rstfn);

@@ -15,6 +15,7 @@ class Playgames extends Component {
     componentDidMount() {
         Win(false);
         this.getalogin();
+
         // let loginUrl = 'https://bird.ioliu.cn/v2/?url=http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId + "&ukey=" + ukey;
         // let loginUrl = 'http://ssc-pro-1171426898.us-east-2.elb.amazonaws.com/ssc/login.xhtml?agentId=' + agentId + "&ukey=" + ukey;
     }
@@ -37,12 +38,14 @@ class Playgames extends Component {
                 return tips;
             }
         }
-
         if (cookie.get("sscuserskey1")  ==  undefined || cookie.get("sscuserskey1")  ==  '' ) {
             let ukey;
             let agentId = this.props.location.search.substring(1);
-            let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId
+            let loginUrl = this.props.thisurl + 'login.xhtml?agentId=' + agentId
             this.props.getlogin(loginUrl);
+
+
+
         } else if (cookie.get("sscuserskey1")) {
             let adatastring = cookie.get("sscuserskey1");
             let dataarr = adatastring.split("_");
@@ -57,12 +60,12 @@ class Playgames extends Component {
                 let aukeystate = this.state;
                 aukeystate.ukey = chosedarr.ukey;
                 this.setState(aukeystate);                    
-                let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId + '&ukey=' + chosedarr.ukey;
+                let loginUrl = this.props.thisurl + 'login.xhtml?agentId=' + agentId + '&ukey=' + chosedarr.ukey;
                 this.props.getlogin(loginUrl);
             } else {
                 let ukey;
                 let agentId = this.props.location.search.substring(1);
-                let loginUrl = 'http://m.ilikezu.cn:8080/ssc/login.xhtml?agentId=' + agentId
+                let loginUrl = this.props.thisurl + 'login.xhtml?agentId=' + agentId
                 this.props.getlogin(loginUrl);
             }
         }
@@ -118,7 +121,6 @@ class Playgames extends Component {
                 //     return JSON.parse(elt); 
                 // })
             }
-
         return  <div className = {style.layout}>
                     <div className = {style.pbox}>
                         <p className = {style.newuser}>您好！这是您首次登录，请您<span>务必劳记并妥善保管</span>以下信息：<br/>您的ID：<strong>{ev.username}</strong><br/>您的安全码：<strong>{ev.safeCode}</strong><br/>请<span>务必劳记或截屏保管此信息</span>，如有疑问，请向工作人员出示以上信息和安全码，以便求助。</p>
@@ -127,14 +129,15 @@ class Playgames extends Component {
                 </div>
                     
         } else if (ev.isnew == false){
-            return  <Wait number = {ev} ukeystate = {this.state.ukey} />
+            return  <Wait number = {ev} ukeystate = {this.state.ukey} apiurl = {this.props.thisurl} />
         }
     }
 
     render() {
         let page;
         let logindata;
-        console.log(this.props.gamesdata);
+        console.log('hahaha')
+
         if (this.props.gamesdata.callback.data) {
             logindata = this.props.gamesdata.callback.data;
             if (logindata.username) {
@@ -164,5 +167,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playgames);
-
 

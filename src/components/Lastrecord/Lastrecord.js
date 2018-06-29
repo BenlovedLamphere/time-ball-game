@@ -6,7 +6,7 @@ import style from './lastrecord.css'
 
 class Lastrecord extends Component {
     componentDidMount() {
-    	let getrecordUrl = 'http://m.ilikezu.cn:8080/ssc/game/getgameHistory.xhtml?max=28';
+    	let getrecordUrl = this.props.apiurl + 'game/getgameHistory.xhtml?max=28';
     	this.props.getlastrecord (getrecordUrl);
     }	
 

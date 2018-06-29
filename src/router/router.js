@@ -12,22 +12,22 @@ import UserInfo from 'bundle-loader?lazy&name=userInfo!pages/UserInfo/UserInfo';
 import Playgame from 'bundle-loader?lazy&name=playgame!pages/Playgame/Playgame';
 import NotFound from 'bundle-loader?lazy&name=notFound!pages/NotFound/NotFound';
 
-const createComponent = (component) => (props) => (
+const createComponent = (component,a) => (props) => (
     <Bundle load={component}>
         {
-            (Component) => Component ? <Component {...props} /> : <Loading/>
+            (Component) => Component ? <Component thisurl = {a} {...props} /> : <Loading/>
         }
     </Bundle>
 );
 
-export default () => (
+export default (a) => (
     <div>
         <Switch>
             <Route path="/home" component={createComponent(Home)}/>
             <Route path="/page1" component={createComponent(Page1)}/>
             <Route path="/counter" component={createComponent(Counter)}/>
             <Route path="/userinfo" component={createComponent(UserInfo)}/>
-            <Route exact path="/" component={createComponent(Playgame)}/>
+            <Route exact path="/" component={createComponent(Playgame,a)} />
             <Route component={createComponent(NotFound)}/>
         </Switch>
     </div>

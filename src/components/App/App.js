@@ -6,9 +6,11 @@ import './public.css';
 
 export default class App extends Component {
     render() {
+
+    	let a = this.props.apiurl;
         return (
             <div>
-                {getRouter()}
+                {getRouter(a)}
             </div>
         )
     }

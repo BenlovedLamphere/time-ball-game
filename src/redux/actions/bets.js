@@ -7,10 +7,10 @@ export function countAllbets (which,betnumber) {
     return {type: COUNTERALLBETS,whichone:which,betnum:betnumber}
 }
 
-export function goplaythebets(id,data,ukey,fn) {
+export function goplaythebets(id,data,ukey,fn,url) {
     return {
         types: [GET_GOBETS_REQUEST, GET_GOBETS_SUCCESS, GET_GOBETS_FAIL],
-        promise: client => client.get('http://m.ilikezu.cn:8080/ssc/game/play.xhtml?gameId=' + id +
+        promise: client => client.get(url + id +
         							  '&da=' + data.da + 
         							  '&xiao=' + data.xiao +
         							  '&dan=' + data.dan +

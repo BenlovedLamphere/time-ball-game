@@ -30,11 +30,12 @@ class Bets extends Component {
             if (Number(this.props.ifbets) >= Number(this.props.betnum)) {
                 let afn = this.checkbetsright.bind(this);
                 let _this = this;//改变this的指向
+                let URL = _this.props.apiurl + 'game/play.xhtml?gameId=';
                 let p = new Promise (function (resolve,veject){
                     _this.props.countAllbets(which,_this.props.betnum)
                     resolve();
                 }).then(function () {
-                    _this.props.goplaythebets(_this.props.gmsid,_this.props.betsdatacenter,_this.abut.ukey,afn);
+                    _this.props.goplaythebets(_this.props.gmsid,_this.props.betsdatacenter,_this.abut.ukey,afn,URL);
                 })
             } else {
               return;
@@ -156,7 +157,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(countAllbets(which,betnumber))
         },
         goplaythebets:(id,data,ukey,fn) => {
-        	dispatch(goplaythebets(id,data,ukey,fn))
+        	dispatch(goplaythebets(id,data,ukey,fn,url))
         }
     }
 };
